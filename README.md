@@ -18,3 +18,11 @@ This time, all the function calls were obfuscated and the `GetProcAddress` was u
 
 ![](images/2.png)
 
+## Test 3 - XOR it!
+
+Now, its time to do some funny things with the payload. We begin with XOR'ing the payload with a string already available in the binary.
+
+#### VirusTotal Score: **13/68**
+
+![](images/3.png)
+
