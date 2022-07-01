@@ -26,3 +26,10 @@ Now, its time to do some funny things with the payload. We begin with XOR'ing th
 
 ![](images/3.png)
 
+## Test 4 - Encode The Encryption
+
+Time to take it a bit further.  We Base64 encode the XOR'd payload and at runtime, we decode and decrypt the shell code. This drastically brings down the detection rate.
+
+#### VirusTotal Score: **6/68**
+
+![](images/4.png)
