@@ -14,7 +14,7 @@ The executable was produced from direct code, i.e., no obfuscation methods were 
 
 This time, all the function calls were obfuscated and the `GetProcAddress` was used along with some XOR'd function names. However, the payload wasn't modified at all.
 
-#### VirusTotal Score: **23/68**
+#### VirusTotal Score: **23/67**
 
 ![](images/2.png)
 
@@ -22,7 +22,7 @@ This time, all the function calls were obfuscated and the `GetProcAddress` was u
 
 Now, its time to do some funny things with the payload. We begin with XOR'ing the payload with a string already available in the binary.
 
-#### VirusTotal Score: **13/68**
+#### VirusTotal Score: **13/67**
 
 ![](images/3.png)
 
@@ -30,6 +30,6 @@ Now, its time to do some funny things with the payload. We begin with XOR'ing th
 
 Time to take it a bit further.  We Base64 encode the XOR'd payload and at runtime, we decode and decrypt the shell code. This drastically brings down the detection rate.
 
-#### VirusTotal Score: **6/68**
+#### VirusTotal Score: **6/67**
 
 ![](images/4.png)
