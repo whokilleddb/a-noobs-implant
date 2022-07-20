@@ -48,8 +48,8 @@ Or, it is better explained by this diagram:
 
 ![](images/algorithm.png)
 
-Anyways, we encode our payload with this, decode it at runtime, pop that `calc.exe`. This, in turn, halves the detection rate.
+Anyways, we encode our payload with this, decode it at runtime, pop that `calc.exe`. This, in turn, _slightly_ the detection rate.
 
-#### VirusTotal Score: **3/69 (Nice)**
+#### VirusTotal Score: **5/69 (Nice)**
 
 ![](images/5.png)
