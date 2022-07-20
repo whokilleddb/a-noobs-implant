@@ -33,3 +33,21 @@ Time to take it a bit further.  We Base64 encode the XOR'd payload and at runtim
 #### VirusTotal Score: **6/67**
 
 ![](images/4.png)
+
+## Test 5 - Write Some Custom Algorithms
+
+At this point, we try to write our own little own algorithm. Why go through this trouble? Well, for one thing, it wouldn't be _that_ signatur'd. What I mean is that most AVs are familiar with signatures of XOR'd and Base64 Encoded Payload but wont't easily recognise a custom algorithm. 
+
+Here, we have employed a simple algorithm:
+
+```
+arr[i] = arr[i]^arr[i+1] (where len(arr)-2> i >=0)
+```
+
+Or, it is better explained by this diagram:
+
+![](images/algorithm.png)
+
+Anyways, we encode our payload with this, decode it at runtime, pop that `calc.exe`. This, in turn, halves the detection rate.
+
+![](images/5.png)
